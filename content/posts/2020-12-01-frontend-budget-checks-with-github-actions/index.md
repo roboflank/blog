@@ -6,9 +6,10 @@ excerpt: A walkthrough to add performance budget checks to your build process.
 hero: images/undraw_File_bundle_xl7g (1).png
 ---
 
-The [performance](https://web.dev/why-speed-matters/) of a webapp is the lifeline of a digital business.
-Let's look at a way of monitoring your webapp frontend budgets using Github actions.
-The metrics we are going to be monitoring are:
+The [performance](https://web.dev/why-speed-matters/) of a webapp is the
+lifeline of a digital business. Let's look at a way of monitoring your webapp
+frontend budgets using Github actions. The metrics we are going to be monitoring
+are:
 
 -   [Size Checks](https://github.com/siddharthkp/bundlesize)
 -   [Lighthouse Audits](https://web.dev/measure/)
@@ -17,17 +18,23 @@ The metrics we are going to be monitoring are:
 -   [Unused Source](https://developers.google.com/web/tools/chrome-devtools/coverage)
 -   [SEO](https://web.dev/lighthouse-seo/)
 
-There are various ways of checking metrics, but we are going to hightlight two easy ones using Gimbal (Part one) and Lighthouse CI ([Part Two](https://wamburu.codes/frontend-budget-checks-with-github-actions-pt.2)). Both of this are done using Github Actions.
+There are various ways of checking metrics, but we are going to hightlight two
+easy ones using Gimbal (Part one) and Lighthouse CI
+([Part Two](https://wamburu.codes/frontend-budget-checks-with-github-actions-pt.2)).
+Both of this are done using Github Actions.
 
-[Gimbal](https://github.com/ModusCreateOrg/gimbal) is built on top of Lighthouse and offers some added features.
-Gimbal can be run using your prefered CI. Check examples of how to configure it using [Circle CI]().
+[Gimbal](https://github.com/ModusCreateOrg/gimbal) is built on top of Lighthouse
+and offers some added features. Gimbal can be run using your prefered CI. Check
+examples of how to configure it using [Circle CI]().
 
-Configuration is done using a `.gimbalrc.yml` file stored in the root of your project.
+Configuration is done using a `.gimbalrc.yml` file stored in the root of your
+project.
 
 ### Setup
 
-**1. Github Actions**
-Create a workflow file that will build your webapp and do performance testing using `ModusCreateOrg/gimbal/action` image on creating a pull request.
+**1. Github Actions** Create a workflow file that will build your webapp and do
+performance testing using `ModusCreateOrg/gimbal/action` image on creating a
+pull request.
 
 ```
 name: CI
@@ -56,8 +63,8 @@ jobs:
 
 Create a workflow using the following configuration:
 
-**2. Gimbal Config**
-Gimbal comes with native audits: `size`, `lighthouse`, `heap-snapshot` & `unused-source`.
+**2. Gimbal Config** Gimbal comes with native audits: `size`, `lighthouse`,
+`heap-snapshot` & `unused-source`.
 
 ```
 # Audit types to run
@@ -74,7 +81,8 @@ configs:
 
 Configs options:
 
--   Size - File & directory size settings. Configure individual files & directory threshold using regex.
+-   Size - File & directory size settings. Configure individual files &
+    directory threshold using regex.
 
 ```
 size:
@@ -120,7 +128,8 @@ the threshold, the test will fail.
               maxSize: 90%
 ```
 
--   Heap Snapshot - Analyze memory graphs, compare snapshots, and find memory leaks.
+-   Heap Snapshot - Analyze memory graphs, compare snapshots, and find memory
+    leaks.
 
 ```
    heap-snapshot:
@@ -134,7 +143,9 @@ the threshold, the test will fail.
             LayoutCount: 15
 ```
 
-More audits can be added using plugins. Let's add `axe` (for accessibility benchmarks), `source-map-explorer` (for exploring individual files that make up the source).
+More audits can be added using plugins. Let's add `axe` (for accessibility
+benchmarks), `source-map-explorer` (for exploring individual files that make up
+the source).
 
 ```
 ....
@@ -181,4 +192,5 @@ plugins:
 
 ```
 
-Source map explorer determines which file each byte in your minified code came from. You can set the threshold for each file entrypoint.
+Source map explorer determines which file each byte in your minified code came
+from. You can set the threshold for each file entrypoint.
