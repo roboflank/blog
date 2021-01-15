@@ -26,7 +26,7 @@ phone" aka iPhone.
 In the early 90s, music consumption was largely over CDs. The audio was stored
 in AIFF (Audio Interchange File Format). It was high quality and excessively
 large. One song, 3 minutes long, could be 30 MB in size. An album, 80 minutes
-could be 800 MB.  
+could be 800 MB.
 With internet speeds averaging 6.1 kbit/s, it took ~1.5 Hrs to download a song,
 and about ~1.5 days to get an album. A 16GB MP3 player would only hold around 20
 albums.
