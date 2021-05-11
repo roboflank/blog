@@ -1,5 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/28e96892-17b9-4f21-bef8-2382e764e882/deploy-status)](https://app.netlify.com/sites/wamburu/deploys)
-
 ### About
 
 Collected and sorted out notes, essays on daily thinking, readings, brain holes and technical topics; Scoping but not limited to innovation, technology, markets, the future, music, etc.
